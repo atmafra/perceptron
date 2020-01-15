@@ -139,7 +139,6 @@ class Perceptron:
     def update_output(self):
         """Updates the output value by applying the activation function to the activation potential
         """
-        # self.output = math.tanh(self.activation)
         self.output = self.activation_function.activation(x=self.activation)
 
     def propagate_forward(self, x: list) -> float:
