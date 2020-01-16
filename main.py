@@ -2,7 +2,7 @@ from activation import *
 from perceptron import Perceptron
 
 T = 1.0
-F = -1.0
+F = 0.0
 inputs = [[F, F], [T, F], [F, T], [T, T]]
 dataset_and = {'inputs': inputs, 'outputs': [F, F, F, T]}
 dataset_or = {'inputs': inputs, 'outputs': [F, T, T, T]}
@@ -14,7 +14,7 @@ dataset_xor = {'inputs': inputs, 'outputs': [F, T, T, F]}
 
 if __name__ == '__main__':
     training_dataset = dataset_and
-    perceptron = Perceptron(input_dimension=2, activation_function=TanH())
+    perceptron = Perceptron(input_dimension=2, activation_function=LeakyReLU())
 
     print('\n--> Before training')
     perceptron.evaluate(dataset=training_dataset)
@@ -28,8 +28,8 @@ if __name__ == '__main__':
     print('Final loss: {:0.6f}'.format(perceptron.loss))
     print('Final weights:', perceptron.weights)
 
-    training_log.plot_loss(log_scale=False)
-    training_log.plot_bias()
-    training_log.plot_weights()
-    training_log.plot_weights_3d()
+    # training_log.plot_loss(log_scale=False)
+    # training_log.plot_bias()
+    # training_log.plot_weights()
+    # training_log.plot_weights_3d()
     training_log.plot_weights_loss_3d()
